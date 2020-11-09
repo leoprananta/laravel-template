@@ -1,0 +1,48 @@
+Installation
+1. Move to htdocs
+2. composer create-project --prefer-dist laravel/laravel nama-project
+	composer create-project --prefer-dist laravel/laravel="^7.0" nama-project
+3. php artisan serve
+4. code . : open vscode
+5. Create db with utf8mb4_general_ci
+6. Set on AppServiceProvider.php files
+use Illuminate\Database\Schema\Builder;
+
+
+public function boot()
+{
+    Builder::defaultStringLength(191);
+}
+7. Authentication : 	composer require laravel/ui --dev	: --dev for development only
+
+			php artisan ui vue/bootstrap/react --auth		: vue and react, --auth for with auth
+
+			npm install && npm run dev
+
+8. Set config/database.php from utfmb4 to utf8
+9. php artisan migrate
+
+
+
+
+
+Backend
+
+1. Download template admin
+2. Create folder backend in public, then copy all files template into backend folder
+3. Add routes admin in web.php
+4. Add AdminController		: php artisan make:controller AdminController
+5. Create function index in AdminAcontroller
+6. Create folder admin in views
+7. Create index.blade.php in admin folder then paste index from template
+8. Load index.blade.php in function index : return view('admin.index');
+9. Set CSS 	: {{ url('backend/blablabla') }}
+
+
+Frontend
+
+1. Download template
+2. Create folder frontend in public, then copy all files template into backend folder
+3. Set templating, and copy var from default laravel page into new page, example var for title, @guest, style, script there has {{}}
+4. Use default controller, or you can make a new controller
+5. Check in routes/web.php, and custom some value, example default domain /, etc
